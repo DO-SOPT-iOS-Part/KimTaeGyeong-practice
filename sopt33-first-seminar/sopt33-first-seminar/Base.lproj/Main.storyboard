@@ -86,14 +86,34 @@
                                     <action selector="backButtonTap:" destination="stq-Xp-poo" eventType="touchUpInside" id="LDn-Es-D0I"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odt-vR-5xL">
+                                <rect key="frame" x="50" y="159" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzS-4H-njS">
+                                <rect key="frame" x="50" y="189" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yq3-Tj-M88"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="odt-vR-5xL" firstAttribute="leading" secondItem="yq3-Tj-M88" secondAttribute="leading" constant="50" id="7Uu-he-crT"/>
+                            <constraint firstItem="AzS-4H-njS" firstAttribute="leading" secondItem="yq3-Tj-M88" secondAttribute="leading" constant="50" id="BWL-sw-IKt"/>
+                            <constraint firstItem="odt-vR-5xL" firstAttribute="top" secondItem="yq3-Tj-M88" secondAttribute="top" constant="100" id="DWn-Lu-aA1"/>
                             <constraint firstItem="TAF-ha-Lqe" firstAttribute="centerX" secondItem="JTJ-0P-iOv" secondAttribute="centerX" id="rcL-JZ-KrD"/>
+                            <constraint firstItem="AzS-4H-njS" firstAttribute="top" secondItem="odt-vR-5xL" secondAttribute="bottom" constant="30" id="rcp-k2-gaV"/>
                             <constraint firstItem="TAF-ha-Lqe" firstAttribute="centerY" secondItem="JTJ-0P-iOv" secondAttribute="centerY" id="san-c1-TaZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="odt-vR-5xL" id="Zef-6E-XPG"/>
+                        <outlet property="passwordLabel" destination="AzS-4H-njS" id="RhO-Uh-I11"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcg-Ug-Udo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
