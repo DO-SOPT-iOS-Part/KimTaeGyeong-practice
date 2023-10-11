@@ -35,7 +35,9 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3t-sJ-QAG">
-                                <rect key="frame" x="162" y="504" width="69" height="35"/>
+                                <rect key="frame" x="50" y="454" width="293" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그인"/>
                                 <connections>
@@ -54,12 +56,13 @@
                             <constraint firstItem="oLR-io-6L5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="G2e-Lr-bQr"/>
                             <constraint firstItem="bsz-I7-5zJ" firstAttribute="top" secondItem="oLR-io-6L5" secondAttribute="bottom" constant="30" id="GvQ-26-b3n"/>
                             <constraint firstItem="bsz-I7-5zJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="HJx-w4-f7Y"/>
-                            <constraint firstItem="K3t-sJ-QAG" firstAttribute="top" secondItem="bsz-I7-5zJ" secondAttribute="bottom" constant="100" id="I10-nY-6xQ"/>
+                            <constraint firstItem="K3t-sJ-QAG" firstAttribute="top" secondItem="bsz-I7-5zJ" secondAttribute="bottom" constant="50" id="I10-nY-6xQ"/>
                             <constraint firstItem="gDW-sK-lJ3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Lii-WL-czI"/>
                             <constraint firstItem="gDW-sK-lJ3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="OCX-cU-Fsb"/>
-                            <constraint firstItem="K3t-sJ-QAG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SPR-x5-LX7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bsz-I7-5zJ" secondAttribute="trailing" constant="50" id="apD-fj-ak3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oLR-io-6L5" secondAttribute="trailing" constant="50" id="cYC-mG-0qS"/>
+                            <constraint firstItem="K3t-sJ-QAG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="fHN-ys-e9A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K3t-sJ-QAG" secondAttribute="trailing" constant="50" id="q3g-Fs-KYb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zxc-tP-EiQ"/>
