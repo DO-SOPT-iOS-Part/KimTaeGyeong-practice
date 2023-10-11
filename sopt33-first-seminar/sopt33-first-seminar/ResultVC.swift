@@ -15,11 +15,16 @@ class ResultVC: UIViewController {
     var loginDataCompletion: ((([String]) -> Void)?) // 매개변수 타입: String 배열, 리턴타입: void
     
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    func setViewStyle() {
+        backButton.layer.cornerRadius = 5
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindText()
+        setViewStyle()
     }
     
     // MARK: 화면전환 방식1 - NavigationController (pop)
@@ -42,8 +47,8 @@ class ResultVC: UIViewController {
     }
     
     private func bindText() {
-        self.emailLabel.text = "email : \(email)"
-        self.passwordLabel.text = "password : \(password)"
+        emailLabel.text = "\(email)"
+        emailLabel.font = UIFont(name: "SnellRoundhand-Bold", size: 20.0)
     }
-    
+
 }

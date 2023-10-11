@@ -83,41 +83,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAF-ha-Lqe">
-                                <rect key="frame" x="152.66666666666666" y="408.66666666666669" width="88" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEV-U3-tr8">
+                                <rect key="frame" x="49.999999999999993" y="109" width="99.333333333333314" height="32"/>
+                                <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odt-vR-5xL">
+                                <rect key="frame" x="157.33333333333334" y="116" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-aO-ALl">
+                                <rect key="frame" x="50" y="408.66666666666669" width="293" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="뒤로 가기"/>
+                                <buttonConfiguration key="configuration" style="plain" title="로그인 화면으로 돌아가기"/>
                                 <connections>
-                                    <action selector="backButtonTap:" destination="stq-Xp-poo" eventType="touchUpInside" id="LDn-Es-D0I"/>
+                                    <action selector="backButtonTap:" destination="stq-Xp-poo" eventType="touchUpInside" id="afC-7m-9mq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odt-vR-5xL">
-                                <rect key="frame" x="50" y="159" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AzS-4H-njS">
-                                <rect key="frame" x="50" y="189" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yq3-Tj-M88"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="odt-vR-5xL" firstAttribute="leading" secondItem="yq3-Tj-M88" secondAttribute="leading" constant="50" id="7Uu-he-crT"/>
-                            <constraint firstItem="AzS-4H-njS" firstAttribute="leading" secondItem="yq3-Tj-M88" secondAttribute="leading" constant="50" id="BWL-sw-IKt"/>
-                            <constraint firstItem="odt-vR-5xL" firstAttribute="top" secondItem="yq3-Tj-M88" secondAttribute="top" constant="100" id="DWn-Lu-aA1"/>
-                            <constraint firstItem="TAF-ha-Lqe" firstAttribute="centerX" secondItem="JTJ-0P-iOv" secondAttribute="centerX" id="rcL-JZ-KrD"/>
-                            <constraint firstItem="AzS-4H-njS" firstAttribute="top" secondItem="odt-vR-5xL" secondAttribute="bottom" constant="30" id="rcp-k2-gaV"/>
-                            <constraint firstItem="TAF-ha-Lqe" firstAttribute="centerY" secondItem="JTJ-0P-iOv" secondAttribute="centerY" id="san-c1-TaZ"/>
+                            <constraint firstItem="odt-vR-5xL" firstAttribute="top" secondItem="yq3-Tj-M88" secondAttribute="top" constant="57" id="AAg-Ag-XiL"/>
+                            <constraint firstItem="KXo-aO-ALl" firstAttribute="leading" secondItem="yq3-Tj-M88" secondAttribute="leading" constant="50" id="HUE-x7-TP4"/>
+                            <constraint firstItem="HEV-U3-tr8" firstAttribute="leading" secondItem="yq3-Tj-M88" secondAttribute="leading" constant="50" id="bX3-zM-5yz"/>
+                            <constraint firstItem="HEV-U3-tr8" firstAttribute="top" secondItem="yq3-Tj-M88" secondAttribute="top" constant="50" id="e64-UE-H0c"/>
+                            <constraint firstItem="yq3-Tj-M88" firstAttribute="trailing" secondItem="KXo-aO-ALl" secondAttribute="trailing" constant="50" id="jVl-9T-2tV"/>
+                            <constraint firstItem="KXo-aO-ALl" firstAttribute="centerY" secondItem="JTJ-0P-iOv" secondAttribute="centerY" id="umB-2u-4xs"/>
+                            <constraint firstItem="odt-vR-5xL" firstAttribute="leading" secondItem="HEV-U3-tr8" secondAttribute="trailing" constant="8" id="yaT-Qm-zTV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="KXo-aO-ALl" id="e9G-E9-eRY"/>
                         <outlet property="emailLabel" destination="odt-vR-5xL" id="Zef-6E-XPG"/>
-                        <outlet property="passwordLabel" destination="AzS-4H-njS" id="RhO-Uh-I11"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcg-Ug-Udo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
