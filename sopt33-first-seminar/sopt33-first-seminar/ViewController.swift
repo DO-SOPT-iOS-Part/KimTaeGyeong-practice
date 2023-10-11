@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     private var idText: String = ""
     private var passwordText: String = ""
     
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

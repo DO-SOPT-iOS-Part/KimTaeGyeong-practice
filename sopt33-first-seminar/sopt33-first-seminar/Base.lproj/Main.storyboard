@@ -63,6 +63,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zxc-tP-EiQ"/>
+                    <connections>
+                        <outlet property="idTextField" destination="oLR-io-6L5" id="xdo-tR-Veg"/>
+                        <outlet property="passwordTextField" destination="bsz-I7-5zJ" id="Fhh-oc-8KI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
