@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         
         passwordTextField.addLeftImage(image: (UIImage(named: "Key")?.resizeImageTo(size: CGSize(width: 25, height: 25)))!)
         passwordTextField.clearButtonMode = .whileEditing
+        passwordTextField.isSecureTextEntry = true
     }
     
     override func viewDidLoad() {
