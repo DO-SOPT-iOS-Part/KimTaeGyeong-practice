@@ -68,6 +68,7 @@
                     <navigationItem key="navigationItem" id="zxc-tP-EiQ"/>
                     <connections>
                         <outlet property="idTextField" destination="oLR-io-6L5" id="xdo-tR-Veg"/>
+                        <outlet property="loginButton" destination="K3t-sJ-QAG" id="exE-qO-S5Z"/>
                         <outlet property="passwordTextField" destination="bsz-I7-5zJ" id="Fhh-oc-8KI"/>
                     </connections>
                 </viewController>

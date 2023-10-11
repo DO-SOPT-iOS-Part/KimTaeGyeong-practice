@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     func setViewStyle() {
         idTextField.addLeftImage(image: (UIImage(named: "Mail")?.resizeImageTo(size: CGSize(width: 25, height: 25)))!)
@@ -22,6 +23,8 @@ class ViewController: UIViewController {
         passwordTextField.addLeftImage(image: (UIImage(named: "Key")?.resizeImageTo(size: CGSize(width: 25, height: 25)))!)
         passwordTextField.clearButtonMode = .whileEditing
         passwordTextField.isSecureTextEntry = true
+        
+        loginButton.layer.cornerRadius = 5
     }
     
     override func viewDidLoad() {
