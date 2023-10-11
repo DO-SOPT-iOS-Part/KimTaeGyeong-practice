@@ -18,6 +18,8 @@ class ResultVC: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     
     func setViewStyle() {
+        emailLabel.font = UIFont(name: "SnellRoundhand-Bold", size: 23.0)
+        
         backButton.layer.cornerRadius = 5
     }
     
@@ -48,7 +50,6 @@ class ResultVC: UIViewController {
     
     private func bindText() {
         emailLabel.text = "\(email)"
-        emailLabel.font = UIFont(name: "SnellRoundhand-Bold", size: 20.0)
     }
 
 }
