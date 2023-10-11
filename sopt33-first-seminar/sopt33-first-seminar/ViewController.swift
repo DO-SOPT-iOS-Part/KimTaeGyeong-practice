@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     
     func setViewStyle() {
         idTextField.addLeftImage(image: (UIImage(named: "Mail")?.resizeImageTo(size: CGSize(width: 25, height: 25)))!)
+        idTextField.clearButtonMode = .whileEditing
         
         passwordTextField.addLeftImage(image: (UIImage(named: "Key")?.resizeImageTo(size: CGSize(width: 25, height: 25)))!)
+        passwordTextField.clearButtonMode = .whileEditing
     }
     
     override func viewDidLoad() {
