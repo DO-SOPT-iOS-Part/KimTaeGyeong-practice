@@ -25,29 +25,29 @@ class TrainingVC: UIViewController {
         NSLayoutConstraint.activate([
             yellowView.topAnchor.constraint(equalTo: self.view.topAnchor),
             yellowView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            yellowView.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2),
+            yellowView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
             yellowView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/4)
         ])
         
         NSLayoutConstraint.activate([
             greenView.topAnchor.constraint(equalTo: self.yellowView.bottomAnchor),
             greenView.leadingAnchor.constraint(equalTo: self.yellowView.trailingAnchor),
-            greenView.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2),
+            greenView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
             greenView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/4)
         ])
         
         NSLayoutConstraint.activate([
             blackView.topAnchor.constraint(equalTo: self.greenView.bottomAnchor),
             blackView.leadingAnchor.constraint(equalTo: yellowView.leadingAnchor),
-            blackView.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2),
-            blackView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/4)
+            blackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
+            blackView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/4)
         ])
         
         NSLayoutConstraint.activate([
             blueView.topAnchor.constraint(equalTo: self.blackView.bottomAnchor),
             blueView.leadingAnchor.constraint(equalTo: self.yellowView.trailingAnchor),
-            blueView.widthAnchor.constraint(equalToConstant: self.view.bounds.width/2),
-            blueView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/4)
+            blueView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
+            blueView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/4)
         ])
     }
     
