@@ -19,8 +19,10 @@ class TrainingVC: UIViewController {
         self.view.addSubview(stackView1)
         self.view.addSubview(stackView2)
         
-        stackView1.translatesAutoresizingMaskIntoConstraints = false
-        stackView2.translatesAutoresizingMaskIntoConstraints = false
+        [stackView1, stackView2].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview($0)
+        }
         
         [yellowView, blackView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
