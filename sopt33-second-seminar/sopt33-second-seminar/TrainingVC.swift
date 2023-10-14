@@ -16,52 +16,76 @@ class TrainingVC: UIViewController {
     }
     
     private func setLayout() {
-        self.view.addSubview(stackView1)
-        self.view.addSubview(stackView2)
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
-        [stackView1, stackView2].forEach {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([scrollView.topAnchor.constraint(equalTo: self.view.topAnchor),
+                                     scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                                     scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                                     scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)])
+        
+        NSLayoutConstraint.activate([contentView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+                                     contentView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+                                     contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+                                     contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+                                     contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)])
+        
+        
+        
+        
+        [leftStackView, rightStackView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview($0)
+            contentView.addSubview($0)
         }
         
+        NSLayoutConstraint.activate([leftStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+                                     leftStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+                                     leftStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+                                     leftStackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2)])
+        
+        NSLayoutConstraint.activate([rightStackView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+                                     rightStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+                                     rightStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+                                     rightStackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2)])
+        
         [yellowView, blackView].forEach {
+            NSLayoutConstraint.activate([$0.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
+                                         $0.heightAnchor.constraint(equalToConstant: 600)])
             $0.translatesAutoresizingMaskIntoConstraints = false
-            stackView1.addArrangedSubview($0)
+            leftStackView.addArrangedSubview($0)
         }
         
         [greenView, blueView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            stackView2.addArrangedSubview($0)
+            NSLayoutConstraint.activate([$0.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
+                                         $0.heightAnchor.constraint(equalToConstant: 600)])
+            rightStackView.addArrangedSubview($0)
         }
         
-        NSLayoutConstraint.activate([
-            stackView1.topAnchor.constraint(equalTo: view.topAnchor),
-            stackView1.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height/4),
-            stackView1.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIScreen.main.bounds.width/2)
-        ])
-        
-        NSLayoutConstraint.activate([
-            stackView2.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height/4),
-            stackView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            stackView2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width/2),
-            stackView2.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
     }
     
-    private var stackView1: UIStackView = {
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.contentInsetAdjustmentBehavior = .never
+        return scrollView
+    }()
+    
+    private var contentView = UIView()
+    
+    private let leftStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = UIScreen.main.bounds.height/4
         return stackView
     }()
     
-    private var stackView2: UIStackView = {
+    private let rightStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = UIScreen.main.bounds.height/4
         return stackView
     }()
     
