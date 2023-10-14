@@ -16,60 +16,72 @@ class TrainingVC: UIViewController {
     }
     
     private func setLayout() {
-        [yellowView, greenView, blackView, blueView].forEach { [weak self] view in
-            guard let self else {return}
-            view.translatesAutoresizingMaskIntoConstraints = false
-            self.view.addSubview(view)
+        self.view.addSubview(stackView1)
+        self.view.addSubview(stackView2)
+        
+        stackView1.translatesAutoresizingMaskIntoConstraints = false
+        stackView2.translatesAutoresizingMaskIntoConstraints = false
+        
+        [yellowView, blackView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            stackView1.addArrangedSubview($0)
+        }
+        
+        [greenView, blueView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            stackView2.addArrangedSubview($0)
         }
         
         NSLayoutConstraint.activate([
-            yellowView.topAnchor.constraint(equalTo: self.view.topAnchor),
-            yellowView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            yellowView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
-            yellowView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/4)
+            stackView1.topAnchor.constraint(equalTo: view.topAnchor),
+            stackView1.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -UIScreen.main.bounds.height/4),
+            stackView1.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            stackView1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -UIScreen.main.bounds.width/2)
         ])
         
         NSLayoutConstraint.activate([
-            greenView.topAnchor.constraint(equalTo: self.yellowView.bottomAnchor),
-            greenView.leadingAnchor.constraint(equalTo: self.yellowView.trailingAnchor),
-            greenView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
-            greenView.heightAnchor.constraint(equalToConstant: self.view.bounds.height/4)
-        ])
-        
-        NSLayoutConstraint.activate([
-            blackView.topAnchor.constraint(equalTo: self.greenView.bottomAnchor),
-            blackView.leadingAnchor.constraint(equalTo: yellowView.leadingAnchor),
-            blackView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
-            blackView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/4)
-        ])
-        
-        NSLayoutConstraint.activate([
-            blueView.topAnchor.constraint(equalTo: self.blackView.bottomAnchor),
-            blueView.leadingAnchor.constraint(equalTo: self.yellowView.trailingAnchor),
-            blueView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width/2),
-            blueView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/4)
+            stackView2.topAnchor.constraint(equalTo: view.topAnchor, constant: UIScreen.main.bounds.height/4),
+            stackView2.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackView2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: UIScreen.main.bounds.width/2),
+            stackView2.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
-    let yellowView: UIView = {
+    private var stackView1: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = UIScreen.main.bounds.height/4
+        return stackView
+    }()
+    
+    private var stackView2: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = UIScreen.main.bounds.height/4
+        return stackView
+    }()
+    
+    private var yellowView: UIView = {
         let view = UIView()
         view.backgroundColor = .yellow
         return view
     }()
     
-    let greenView: UIView = {
+    private var greenView: UIView = {
         let view = UIView()
         view.backgroundColor = .green
         return view
     }()
     
-    let blackView: UIView = {
+    private var blackView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
         return view
     }()
     
-    let blueView: UIView = {
+    private var blueView: UIView = {
         let view = UIView()
         view.backgroundColor = .blue
         return view
