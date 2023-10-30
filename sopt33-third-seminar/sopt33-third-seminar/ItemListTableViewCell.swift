@@ -12,6 +12,8 @@ import Then
 
 class ItemListTableViewCell: UITableViewCell {
     
+    static let identifier: String = "ItemListTableViewCell"
+    
     private let stackView = UIStackView().then {
         $0.axis = .vertical
         $0.distribution = .equalSpacing
