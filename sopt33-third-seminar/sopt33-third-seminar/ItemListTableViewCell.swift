@@ -40,9 +40,12 @@ class ItemListTableViewCell: UITableViewCell {
         $0.textColor = .white
     }
     
-    private let likeButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "heart"), for: .normal)
-        $0.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+    private lazy var likeButton = UIButton().then {
+        $0.addTarget(self,
+                     action: #selector(likeButtonTapped),
+                     for: .touchUpInside)
+        $0.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+        $0.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .selected)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -86,11 +89,15 @@ class ItemListTableViewCell: UITableViewCell {
     }
     
     func bindData(data: ItemListData) {
-            self.productImageView.image = UIImage(named: data.image)
-            self.productNameLabel.text = data.item
-            self.priceLabel.text = data.price
-            self.locationLabel.text = data.location
-            self.likeButton.isSelected = data.isLike
+        self.productImageView.image = UIImage(named: data.image)
+        self.productNameLabel.text = data.item
+        self.priceLabel.text = data.price
+        self.locationLabel.text = data.location
+        self.likeButton.isSelected = data.isLike
+    }
+    
+    @objc private func likeButtonTapped() {
+        likeButton.isSelected.toggle()
     }
     
 }
