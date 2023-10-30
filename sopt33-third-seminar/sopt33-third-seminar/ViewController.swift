@@ -54,6 +54,10 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ItemListTableViewCell.identifier,
                                                        for: indexPath) as? ItemListTableViewCell else {return UITableViewCell()}
+        cell.likeTapCompletion = { [weak self] state in
+            guard let self else {return}
+            itemListData[indexPath.row].isLike = state
+        }
         cell.bindData(data: itemListData[indexPath.row])
         return cell
     }

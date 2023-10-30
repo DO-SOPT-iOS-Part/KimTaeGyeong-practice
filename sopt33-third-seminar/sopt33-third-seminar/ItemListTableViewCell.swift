@@ -12,6 +12,8 @@ import Then
 
 class ItemListTableViewCell: UITableViewCell {
     
+    var likeTapCompletion: ((Bool) -> Void)?
+    
     static let identifier: String = "ItemListTableViewCell"
     
     private let stackView = UIStackView().then {
@@ -98,6 +100,8 @@ class ItemListTableViewCell: UITableViewCell {
     
     @objc private func likeButtonTapped() {
         likeButton.isSelected.toggle()
+        guard let likeTapCompletion else {return}
+        likeTapCompletion(likeButton.isSelected)
     }
     
 }
