@@ -85,4 +85,12 @@ class ItemListTableViewCell: UITableViewCell {
         }
     }
     
+    func bindData(data: ItemListData) {
+            self.productImageView.image = UIImage(named: data.image)
+            self.productNameLabel.text = data.item
+            self.priceLabel.text = data.price
+            self.locationLabel.text = data.location
+            self.likeButton.isSelected = data.isLike
+    }
+    
 }
