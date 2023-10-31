@@ -15,6 +15,14 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setLayout()
+    }
+    
+    private func setLayout() {
+        self.view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
 }
