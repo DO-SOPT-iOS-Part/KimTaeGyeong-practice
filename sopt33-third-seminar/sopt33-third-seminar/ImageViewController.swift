@@ -19,6 +19,7 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setLayout()
+        self.setCollectionViewConfig()
     }
     
     private func setLayout() {
@@ -28,4 +29,37 @@ class ImageViewController: UIViewController {
         }
     }
     
+    private func setCollectionViewConfig() {
+        self.collectionView.register(ImageCollectionViewCell.self,
+                                     forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+    }
+    
+}
+
+extension ImageViewController: UICollectionViewDelegate {}
+
+extension ImageViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier,
+                                                            for: indexPath) as? ImageCollectionViewCell else {return UICollectionViewCell()}
+        return item
+    }
+}
+
+extension ImageViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 3
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (UIScreen.main.bounds.width - 6) / 3 , height: (UIScreen.main.bounds.width - 6) / 3)
+    }
 }

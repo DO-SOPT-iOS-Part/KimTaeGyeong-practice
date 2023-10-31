@@ -12,6 +12,8 @@ import Then
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
+    static let identifier: String = "ImageCollectionViewCell"
+    
     private let imageView = UIImageView()
     
     private lazy var likeButton = UIButton().then {
