@@ -49,7 +49,8 @@ extension ImageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let item = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier,
                                                             for: indexPath) as? ImageCollectionViewCell else {return UICollectionViewCell()}
-        item.bindData(data: imageCollectionList[indexPath.row])
+        item.delegate = self
+        item.bindData(data: imageCollectionList[indexPath.row], row: indexPath.row)
         return item
     }
     
@@ -67,6 +68,14 @@ extension ImageViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (UIScreen.main.bounds.width - 6) / 3 , height: (UIScreen.main.bounds.width - 6) / 3)
+    }
+    
+}
+
+extension ImageViewController: ItemSelectedProtocol {
+    
+    func getButtonState(state: Bool, row: Int) {
+        imageCollectionList[row].isLiked = state
     }
     
 }

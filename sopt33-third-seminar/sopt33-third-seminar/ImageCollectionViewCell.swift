@@ -14,9 +14,16 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "ImageCollectionViewCell"
     
+    weak var delegate: ItemSelectedProtocol?
+    
+    var itemRow: Int?
+    
     private let imageView = UIImageView()
     
     private lazy var likeButton = UIButton().then {
+        $0.addTarget(self,
+                     action: #selector(likeButtonTap),
+                     for: .touchUpInside)
         $0.setImage(UIImage(systemName: "heart"), for: .normal)
         $0.setImage(UIImage(systemName: "heart.fill"), for: .selected)
     }
@@ -43,9 +50,18 @@ class ImageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func bindData(data: ImageCollectionData) {
+    func bindData(data: ImageCollectionData, row: Int) {
         self.imageView.image = UIImage(named: data.image)
         self.likeButton.isSelected = data.isLiked
+        self.itemRow = row
+    }
+    
+    @objc private func likeButtonTap() {
+        self.likeButton.isSelected.toggle()
+        if let itemRow {
+            self.delegate?.getButtonState(state: self.likeButton.isSelected,
+                                          row: itemRow)
+        }
     }
     
 }
