@@ -43,4 +43,9 @@ class ImageCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func bindData(data: ImageCollectionData) {
+        self.imageView.image = UIImage(named: data.image)
+        self.likeButton.isSelected = data.isLiked
+    }
+    
 }
