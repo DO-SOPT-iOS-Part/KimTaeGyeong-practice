@@ -30,16 +30,26 @@ class ViewController: UIViewController {
                 let status = try await RegisterService.shared.PostRegisterData(usreName: self.usreName,
                                                                                password: self.password,
                                                                                nickName: self.nickName)
+                let checkUsername = try await
+                CheckUsernameService.shared.PostRegisterData(username: self.usreName).isExist
+                
                 if status == 201 {
                     let alert = UIAlertController(title: "계정생성 성공", message: "와하하", preferredStyle: UIAlertController.Style.alert)
                     let okAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                     alert.addAction(okAction)
                     self.present(alert, animated: true)
                 } else {
-                    let alert = UIAlertController(title: "계정생성 실패", message: "흑흑", preferredStyle: UIAlertController.Style.alert)
-                    let okAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true)
+                    if checkUsername {
+                        let alert = UIAlertController(title: "중복된 아이디 입니다.", message: "흑흑", preferredStyle: UIAlertController.Style.alert)
+                        let okAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true)
+                    } else {
+                        let alert = UIAlertController(title: "계정생성 실패", message: "흑흑", preferredStyle: UIAlertController.Style.alert)
+                        let okAction =  UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
+                        alert.addAction(okAction)
+                        self.present(alert, animated: true)
+                    }
                 }
                 print(status)
             } catch {

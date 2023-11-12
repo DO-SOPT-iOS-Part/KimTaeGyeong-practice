@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 class InfoViewController: UIViewController {
-
+    
     private var userId: String = ""
     
     override func viewDidLoad() {
