@@ -7,9 +7,6 @@
 
 import UIKit
 
-import SnapKit
-import Then
-
 class animateVC: UIViewController {
     var clickCount: Int = 0
     
@@ -42,6 +39,32 @@ class animateVC: UIViewController {
         }
     }
     
+    private func setAnimation() {
+            if self.clickCount > 5 {
+                self.activityIndicator.startAnimating()
+                self.activityIndicator.isHidden = false
+                return
+            }
+            let randomX = CGFloat.random(in: 0 ... UIScreen.main.bounds.width - self.startButton.bounds.size.width)
+            let randomY = CGFloat.random(in: 0 ... UIScreen.main.bounds.height - self.startButton.bounds.size.height)
+            
+            UIView.animateKeyframes(withDuration: 1, delay: 0) {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
+                    self.startButton.frame = .init(origin: .init(x: randomX, y: randomY),
+                                                   size: self.startButton.bounds.size)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.3) {
+                    self.startButton.alpha = 0
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3) {
+                    self.startButton.alpha = 1
+                }
+                
+            } completion: { _ in
+                self.clickCount += 1
+            }
+        }
+    
     private let activityIndicator = UIActivityIndicatorView().then {
         $0.color = .black
         $0.hidesWhenStopped = true
@@ -49,8 +72,7 @@ class animateVC: UIViewController {
     }
     
     @objc private func startButtonTap() {
-        self.activityIndicator.startAnimating()
-        self.activityIndicator.isHidden = false
+        setAnimation()
     }
     
     @objc private func pauseButtonTap() {
@@ -59,9 +81,9 @@ class animateVC: UIViewController {
     }
     
     private lazy var startButton = UIButton().then {
-        $0.addTarget(self,
-                     action: #selector(startButtonTap),
-                     for: .touchUpInside)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(startButtonTap))
+        $0.addGestureRecognizer(gesture)
+        $0.isUserInteractionEnabled = true
         $0.setTitle("시작", for: .normal)
         $0.setTitleColor(.black, for: .normal)
     }
