@@ -39,6 +39,9 @@ class MVVMPracticeVC: UIViewController {
     }
     
     @objc private func randomButtonTap() {
+        if viewModel.randomButtonTap() {
+            self.tableView.reloadData()
+        }
     }
     
     private lazy var randomButton = UIButton().then {

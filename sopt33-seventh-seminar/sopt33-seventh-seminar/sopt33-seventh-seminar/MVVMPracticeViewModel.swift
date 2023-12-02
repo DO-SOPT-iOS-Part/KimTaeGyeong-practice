@@ -39,8 +39,10 @@ final class MVVMPracticeViewModel: NSObject {
                                                                   SoptMember(name: "최서연", winning: false, age: 23),
                                                                   SoptMember(name: "최효리", winning: false, age: 23)]
     
-    func randomButtonTap() {
-
+    func randomButtonTap() -> Bool {
+        let randomIndex = Int.random(in: 0 ... self.soptModel.count - 1)
+        self.soptModel[randomIndex].winning = true
+        return true
     }
     
 }
