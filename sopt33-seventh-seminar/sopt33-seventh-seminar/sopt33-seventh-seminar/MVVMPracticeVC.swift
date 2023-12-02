@@ -36,6 +36,11 @@ class MVVMPracticeVC: UIViewController {
     
     private func bindViewModel() {
         tableView.dataSource = viewModel
+        viewModel.soptModel.bind {
+            [weak self] _ in
+            guard let self else { return }
+            tableView.reloadData()
+        }
     }
     
     @objc private func randomButtonTap() {
